@@ -1,7 +1,6 @@
 package com.unistmo.edu.a8_puzzle;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -11,6 +10,10 @@ public class Puzzle{
 
     private List<Integer> states;
     private Puzzle parent;
+    private int g_score;
+    private int f_score;
+
+
 
     public Puzzle( List<Integer> states){
         this.states=new ArrayList<>(states);
@@ -63,5 +66,26 @@ public class Puzzle{
     }
     public void setParent(Puzzle parent) {
         this.parent = parent;
+    }
+    public int getG_score() {return g_score;}
+    public void setG_score(int g_score) {this.g_score = g_score;
+    }
+
+    public int getF_score() {
+        return f_score;
+    }
+
+    public void setF_score(int f_score) {
+        this.f_score = f_score;
+    }
+
+    @Override
+    public String toString() {
+        return "Puzzle{" +
+                "states=" + states +
+                ", parent=" + parent +
+                ", g_score=" + g_score +
+                ", f_score=" + f_score +
+                '}';
     }
 }

@@ -8,14 +8,14 @@ import java.util.List;
  */
 public class Puzzle{
 
-    private List<Integer> states;
+    private ArrayList<Integer> states;
     private Puzzle parent;
     private int g_score;
     private int f_score;
 
 
 
-    public Puzzle( List<Integer> states){
+    public Puzzle( ArrayList<Integer> states){
         this.states=new ArrayList<>(states);
     }
     public static Puzzle moveBlankUp(Puzzle puzzlein){
@@ -55,10 +55,10 @@ public class Puzzle{
         }
         return puzzle;
     }
-    public List<Integer> getStates() {
+    public ArrayList<Integer> getStates() {
         return states;
     }
-    public void setStates(List<Integer> states) {
+    public void setStates(ArrayList<Integer> states) {
         this.states = states;
     }
     public Puzzle getParent() {

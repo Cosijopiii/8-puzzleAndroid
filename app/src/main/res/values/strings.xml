@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">8-puzzle</string>
     <string name="action_settings">Settings</string>
+    <string name="moves_title">moves</string>
+    <string name="feedback_title">8o</string>
+    <string name="game_feedback_text">8p</string>
+    <string name="title_activity_game_puzzle">GamePuzzle</string>
 </resources>

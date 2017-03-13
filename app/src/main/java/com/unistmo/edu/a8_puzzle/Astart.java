@@ -4,6 +4,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 
@@ -26,7 +27,7 @@ public class Astart {
         nodeInit=puzzle;
     }
 
-    public void Search(){
+    public ArrayList<Puzzle> Search(){
         nodeInit.setF_score(nodeInit.getG_score()+ManhattanDistanceH(nodeInit.getStates()));
         puzzleListOpen.add(nodeInit);
         while (puzzleListOpen.size()!=0){
@@ -44,23 +45,17 @@ public class Astart {
 
                 Puzzle node=current;
 
-                List<Puzzle> path=new ArrayList<>();
+                ArrayList<Puzzle> path=new ArrayList<>();
+                path.add(node);
                 while (node.getParent()!=null){
                     node=node.getParent();
                     path.add(node);
                 }
-                String a="";
-                for (Puzzle p:path ) {
-                    for (Integer i:p.getStates()) {
-                       a=a+i;
-                    }
-                    Log.d("A*", "Search: "+" "+a);
-                    a="";
-                }
+                Collections.reverse(path);
+                return path;
 
-                break;
             }
-            puzzleListOpen.set(currentIndex,null);
+            puzzleListOpen.remove(current);
             puzzleListClosed.add(current);
             List<Puzzle> neighbors=new ArrayList<>();
 
@@ -133,6 +128,7 @@ public class Astart {
                 }
             }
         }
+        return null;
     }
 
     private int ManhattanDistanceH(List<Integer> states) {
